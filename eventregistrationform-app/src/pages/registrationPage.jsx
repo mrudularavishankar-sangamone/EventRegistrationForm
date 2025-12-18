@@ -45,36 +45,41 @@ export default function RegistrationPage() {
   }
 
   return (
-    <div>
-      <form onSubmit = {handleSubmit}>
-        <label> Name of the Participant: </label>
-        <input type = 'text' id = 'participantName'  placeholder = 'Participant Name' onChange = {handleChange} required/> <br/><br/>
-        
-        <label> Name of the Organization: </label>
-        <input type = 'text' id = 'orgName' placeholder = 'Organization' onChange = {handleChange}  required/> <br/><br/>
-        
-        <label> Designation of the Participant: </label>
-        <input type = 'text' id = 'designation' placeholder = 'Designation' onChange = {handleChange} required/> <br/><br/>
-        
-        <label> Email Address of the Participant: </label>
-        <input type = 'email' id = 'emailID' placeholder = 'youremail@abc.com' onChange = {handleChange} pattern="^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required/> <br/><br/>
-        
-        <label> Phone Number of the Participant: </label>
-        <input type = 'tel' id = 'phoneNumber' pattern="\d+" placeholder = '1234567890' minLength = {10} onChange = {handleChange} required/> <br/><br/>
-        
-        <label> Name of the Event: </label>
-        <input type = 'text' id = 'eventName' placeholder = 'Co-Pilot Seminar,Database Seminar,....' onChange = {handleChange} required/> <br/><br/>
-        
-        <label> ID of the Event: </label>
-        <input type = 'text' id = 'eventID' pattern = "(?=.*\d)(?=.*[a-zA-Z]).+" placeholder = 'Must be alphanumeric' onChange = {handleChange}  required/> <br/><br/>
-        
-        <label> Date of the Event: </label>
-        <input type = 'date' min = {today} max = {maxDate} id = 'eventDate' onChange = {handleChange} required/> <br/><br/>
-        
-        <label> Name of the Event Organiser: </label>
-        <input type = 'text' id = 'eventOrganizer' placeholder = 'Microsoft, Oracle,....'  onChange = {handleChange} required/> <br/><br/>
+    <div className="registration-page">
 
-       <button type = 'submit' id = 'submitButton'> Submit </button>
+      <form onSubmit = {handleSubmit}>
+        <label> Name of the Participant:
+          <input type = 'text' id = 'participantName'  placeholder = 'Participant Name' onChange = {handleChange} required/> 
+        </label>
+        
+        <label> Name of the Organization: 
+          <input type = 'text' id = 'orgName' placeholder = 'Organization' onChange = {handleChange}  required/>
+        </label>
+        
+        <label> Designation of the Participant: 
+          <input type = 'text' id = 'designation' placeholder = 'Designation' onChange = {handleChange} required/>   
+        </label>
+
+        <label> Email Address of the Participant: 
+        <input type = 'email' id = 'emailID' placeholder = 'youremail@abc.com' onChange = {handleChange} pattern="^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required/>   
+        </label>
+        <label> Phone Number of the Participant: 
+        <input type = 'tel' id = 'phoneNumber' pattern="\d+" placeholder = '1234567890' minLength = {10} onChange = {handleChange} required/>   </label>
+        
+        <label> Name of the Event: 
+        <input type = 'text' id = 'eventName' placeholder = 'Co-Pilot Seminar,Database Seminar,....' onChange = {handleChange} required/>   </label>
+        
+        <label> ID of the Event: 
+        <input type = 'text' id = 'eventID' pattern = "(?=.*\d)(?=.*[a-zA-Z]).+" placeholder = 'Must be alphanumeric' onChange = {handleChange}  required/>  </label> 
+        
+        <label> Date of the Event: 
+        <input type = 'date' min = {today} max = {maxDate} id = 'eventDate' onChange = {handleChange} required/> </label>  
+        
+        <label> Name of the Event Organiser: 
+        <input type = 'text' id = 'eventOrganizer' placeholder = 'Microsoft, Oracle,....'  onChange = {handleChange} required/>   </label>
+
+        <button className = "submitButton" type = "submit"> Register </button>
+        <button className = "resetButton" type = "reset"> Reset Form </button>
       
       </form>
     </div>
