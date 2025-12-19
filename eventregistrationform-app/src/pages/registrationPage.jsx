@@ -11,6 +11,7 @@ export default function RegistrationPage() {
 
   const [formData, setformData] = useState({
     participantName: '',
+    empID: '',
     orgName: '',
     designation: '',
     emailID: '',
@@ -50,6 +51,10 @@ export default function RegistrationPage() {
       <form onSubmit = {handleSubmit}>
         <label> Name of the Participant:
           <input type = 'text' id = 'participantName'  placeholder = 'Participant Name' onChange = {handleChange} required/> 
+        </label>
+        
+        <label> Employee ID of the Participant: 
+          <input type = 'text' id = 'empID' placeholder = 'Employee ID' onChange = {handleChange} required/>   
         </label>
         
         <label> Name of the Organization: 
