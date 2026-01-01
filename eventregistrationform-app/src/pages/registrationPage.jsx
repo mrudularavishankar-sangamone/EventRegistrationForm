@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
+import { registerParticipant } from '../api/registration';
 
 export default function RegistrationPage() {
 
@@ -34,13 +35,30 @@ export default function RegistrationPage() {
     // This keeps the React state intact and lets us handle the submission manually.
     event.preventDefault();
 
+    setformData({
+      participantName: '',
+      empID: '',
+      orgName: '',
+      designation: '',
+      emailID: '',
+      phoneNumber: '',
+      eventName: '',
+      eventID: '',
+      eventDate: '',
+      eventOrganizer: ''
+    });
+
     setsuccessMessage('');
     setError('');
 
-    const registrationInfo = {...formData};
+     try {
+      const data = await registerParticipant(formData);
+      setsuccessMessage(data.message);
 
-    console.log('Form submitted:', registrationInfo);
-    localStorage.setItem('registrationInfo', JSON.stringify(registrationInfo));
+      // reset form
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   // Handle input changes dynamically:
@@ -79,7 +97,7 @@ export default function RegistrationPage() {
         <input type = 'email' id = 'emailID' placeholder = 'youremail@abc.com' onChange = {handleChange} pattern = '^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$' required/>   
         </label>
         <label> Phone Number of the Participant: 
-        <input type = 'tel' id = 'phoneNumber' pattern = '[0-9\s\-()]+' placeholder = '1234567890' minLength = {10} onChange = {handleChange} required/>   </label>
+        <input type = 'tel' id = 'phoneNumber' pattern = '^\+[1-9]\d{1,14}$' placeholder = '1234567890' minLength = {10} onChange = {handleChange} required/>   </label>
         
         <label> Name of the Event: 
         <input type = 'text' id = 'eventName' placeholder = 'Co-Pilot Seminar,Database Seminar,....' onChange = {handleChange} required/>   </label>
@@ -93,13 +111,9 @@ export default function RegistrationPage() {
         <label> Name of the Event Organiser: 
         <input type = 'text' id = 'eventOrganizer' placeholder = 'Microsoft, Oracle,....'  onChange = {handleChange} required/>   </label>
 
-        {
-          (successMessage.length > 0) ? <label className = 'success-Message'> {successMessage} </label> : <></>
-        }
-        {
-          (error.length > 0) ? <label className = 'error-Message'> {error} </label> : <></>
-        }
-        
+        {successMessage && <p className = 'successMessage'> {successMessage} </p>}
+        {error && <p className = 'errorMessage'> {error} </p>}
+
         <button className = 'submitButton' type = 'submit'> Register </button>
         <button className = 'resetButton' type = 'reset'> Reset Form </button>
       
