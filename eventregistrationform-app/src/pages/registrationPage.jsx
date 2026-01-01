@@ -56,7 +56,7 @@ export default function RegistrationPage() {
   }
 
   return (
-    <div className="registration-page">
+    <div className = 'registration-page'>
 
       <form onSubmit = {handleSubmit}>
         <label> Name of the Participant:
@@ -64,7 +64,7 @@ export default function RegistrationPage() {
         </label>
         
         <label> Employee ID of the Participant: 
-          <input type = 'text' id = 'empID' placeholder = 'Employee ID' onChange = {handleChange} required/>   
+          <input type = 'text' id = 'empID' pattern = '(?=.*\d)(?=.*[a-zA-Z]).+' placeholder = 'Employee ID' onChange = {handleChange} required/>   
         </label>
         
         <label> Name of the Organization: 
@@ -76,16 +76,16 @@ export default function RegistrationPage() {
         </label>
 
         <label> Email Address of the Participant: 
-        <input type = 'email' id = 'emailID' placeholder = 'youremail@abc.com' onChange = {handleChange} pattern="^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required/>   
+        <input type = 'email' id = 'emailID' placeholder = 'youremail@abc.com' onChange = {handleChange} pattern = '^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$' required/>   
         </label>
         <label> Phone Number of the Participant: 
-        <input type = 'tel' id = 'phoneNumber' pattern="\d+" placeholder = '1234567890' minLength = {10} onChange = {handleChange} required/>   </label>
+        <input type = 'tel' id = 'phoneNumber' pattern = '[0-9\s\-()]+' placeholder = '1234567890' minLength = {10} onChange = {handleChange} required/>   </label>
         
         <label> Name of the Event: 
         <input type = 'text' id = 'eventName' placeholder = 'Co-Pilot Seminar,Database Seminar,....' onChange = {handleChange} required/>   </label>
         
         <label> ID of the Event: 
-        <input type = 'text' id = 'eventID' pattern = "(?=.*\d)(?=.*[a-zA-Z]).+" placeholder = 'Must be alphanumeric' onChange = {handleChange}  required/>  </label> 
+        <input type = 'text' id = 'eventID' pattern = '(?=.*\d)(?=.*[a-zA-Z]).+' placeholder = 'Must be alphanumeric' onChange = {handleChange}  required/>  </label> 
         
         <label> Date of the Event: 
         <input type = 'date' min = {today} max = {maxDateString} id = 'eventDate' onChange = {handleChange} required/> </label>  
@@ -100,8 +100,8 @@ export default function RegistrationPage() {
           (error.length > 0) ? <label className = 'error-Message'> {error} </label> : <></>
         }
         
-        <button className = "submitButton" type = "submit"> Register </button>
-        <button className = "resetButton" type = "reset"> Reset Form </button>
+        <button className = 'submitButton' type = 'submit'> Register </button>
+        <button className = 'resetButton' type = 'reset'> Reset Form </button>
       
       </form>
     </div>
