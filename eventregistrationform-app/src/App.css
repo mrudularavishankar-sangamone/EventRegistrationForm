@@ -50,7 +50,7 @@ input {
 }
 
 .submitButton, .resetButton {
-  margin: 10px;
+  margin: 5px 0px 5px 0px;
   padding: 10px;
   border: 1px solid black;
   width: 10%;
@@ -92,4 +92,24 @@ input {
   cursor: not-allowed;
   /*Shrinking the button when pressed*/
   transform: scale(0.90);
+}
+
+.success-Message {
+  color: rgb(58, 196, 58);
+  font-weight: bold;
+  margin: 20px 0px 10px 0px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-Message {
+  color: rgb(169, 44, 44);
+  font-weight: bold;
+  margin: 0px 0px 10px 0px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

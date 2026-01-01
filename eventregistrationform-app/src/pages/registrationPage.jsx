@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css';
 
 export default function RegistrationPage() {
 
@@ -6,8 +7,14 @@ export default function RegistrationPage() {
   // toISOString() converts it to an ISO string: "2025-12-10T14:32:18.123Z".
   // split("T") separates the date and time into ["2025-12-10", "14:32:18.123Z"].
   // [0] selects only the date part ("2025-12-10").
-  const today = new Date().toISOString().split('T')[0];
-  const maxDate = "2026-01-02";
+  const date = new Date();
+  const today = date.toISOString().split('T')[0];
+  const maxDate = date.getDate() + 14; // 4 weeks from today
+  date.setDate(maxDate);
+  const maxDateString = date.toISOString().split('T')[0];
+
+  const [successMessage, setsuccessMessage] = useState('');
+  const [error, setError] = useState('');
 
   const [formData, setformData] = useState({
     participantName: '',
@@ -26,6 +33,9 @@ export default function RegistrationPage() {
     // Prevents the browser from refreshing the page when the form is submitted.
     // This keeps the React state intact and lets us handle the submission manually.
     event.preventDefault();
+
+    setsuccessMessage('');
+    setError('');
 
     const registrationInfo = {...formData};
 
@@ -78,11 +88,18 @@ export default function RegistrationPage() {
         <input type = 'text' id = 'eventID' pattern = "(?=.*\d)(?=.*[a-zA-Z]).+" placeholder = 'Must be alphanumeric' onChange = {handleChange}  required/>  </label> 
         
         <label> Date of the Event: 
-        <input type = 'date' min = {today} max = {maxDate} id = 'eventDate' onChange = {handleChange} required/> </label>  
+        <input type = 'date' min = {today} max = {maxDateString} id = 'eventDate' onChange = {handleChange} required/> </label>  
         
         <label> Name of the Event Organiser: 
         <input type = 'text' id = 'eventOrganizer' placeholder = 'Microsoft, Oracle,....'  onChange = {handleChange} required/>   </label>
 
+        {
+          (successMessage.length > 0) ? <label className = 'success-Message'> {successMessage} </label> : <></>
+        }
+        {
+          (error.length > 0) ? <label className = 'error-Message'> {error} </label> : <></>
+        }
+        
         <button className = "submitButton" type = "submit"> Register </button>
         <button className = "resetButton" type = "reset"> Reset Form </button>
       
