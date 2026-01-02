@@ -94,7 +94,7 @@ input {
   transform: scale(0.90);
 }
 
-.success-Message {
+.success-message {
   color: rgb(58, 196, 58);
   font-weight: bold;
   margin: 20px 0px 10px 0px;
@@ -104,7 +104,7 @@ input {
   align-items: center;
 }
 
-.error-Message {
+.error-message {
   color: rgb(169, 44, 44);
   font-weight: bold;
   margin: 0px 0px 10px 0px;
