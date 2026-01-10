@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Event Registration App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This ReactJS application allows users to register for events through an interactive form. It collects user information such as participant name, event name, and event date, validates input in real-time, and provides a smooth and responsive registration experience.
 
-## Available Scripts
+## Technologies Used:
+- ReactJS - UI framework and interactivity
+- HTML - Markup structure
+- CSS - Styling
 
-In the project directory, you can run:
+## Setup/Installation
 
-### `npm start`
+### Prerequisites:
+- Node.js (v14 or higher) and npm installed on your machine
+- Git (to clone the repository)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Verify if npm is installed in your device/workspace(for Windows):
+    - Before running the project, ensure that npm is installed on your system.
+    - Open the Terminal in VSCode.
+    - Run the following command:
+      ```
+      npm -v
+      ```
+    - If a version number is displayed (for example, 10.4.1), npm is already installed. You can skip Step 2.
+    - If you see an error such as: 'npm' is not recognized as an internal or external command, then npm is not installed. Proceed to Step 2
 
-### `npm test`
+2. Installing npm:
+    - Download Node.js from 'https://nodejs.org/'.
+    - Install Node.js by running the installer and follow the prompts.
+    - Verify the installation by running the npm -v command in terminal.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install the React package and its dependencies:
+   ```
+   npx create-react-app <app-name>
+   ```
+   P.S: The AppName should only contain lowercase alphabets
 
-### `npm run build`
+4. Changing the directory to the AppName:
+   ```
+   cd <app-name>
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. Start the development server:
+   ```
+   npm start
+   ```
+   The app will open in your browser at `http://localhost:3000`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. Modify App.js file:
+    - Delete the logo.svg import statement
+    - Delete all the lines of code between the return() in App function
+    - Add the following statements in the return()
+      ```
+      return(
+        <div>
+          <h1> Event Registration Form </h1>
+        </div>
+      );
+      ```
+    - Verify the output at `http://localhost:3000`. Now, the React Application is ready. 
+     
+7. Grouping the jsx files:
+    - Create a folder called pages under src
+    - Create a file called Page1.jsx under pages folder
+    - Add the ```export default function Page1(){ }``` statement 
+    - Add an empty return statement within Page1() function:
+      ```
+      return(
+        <div>
+        </div>
+      );
+      ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+8. Include Page1.jsx reference in App.js:
+    - Add ```import Page1 from './pages/Page1.jsx';``` statement
+    - Add <Page1/> tag within the return() so that the contents of Page1.jsx shows up on the screen.
+      ```
+      return (
+        <div>
+          <h1> Event Registration Form </h1>
+          <Page1 />
+        </div>
+      );
+      ```
+    - Verify the output at `http://localhost:3000`.
 
-### `npm run eject`
+9. Adding form elements to Page1.jsx file:
+    - Add the following piece of code to generate a form within a return() statement:
+      ```
+      <form>
+        <label> Name of the Participant: 
+          <input type = 'text' id = 'participantName' required/>
+        </label>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+        <label> Event Name: 
+          <input type = 'text' id = 'eventName' required/>
+        </label>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        <label> Event Date:
+          <input type = 'date' id = 'eventDate' min = {today} required/>
+        </label>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+        <button className = 'submit-button'> Submit </button>
+        <button className = 'reset-button'> Reset </button>
+      </form>
+      ```
+    - Enclose the form within div tags:
+      ```
+      return(
+        <div>
+           <form>
+           .......
+           </form>
+        </div>
+      )
+      ```
