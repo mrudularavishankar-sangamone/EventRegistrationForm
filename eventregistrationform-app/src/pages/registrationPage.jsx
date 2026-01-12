@@ -10,9 +10,6 @@ export default function RegistrationPage() {
   // [0] selects only the date part ("2025-12-10").
   const date = new Date();
   const today = date.toISOString().split('T')[0];
-  const maxDate = date.getDate() + 21; // 3 weeks from today
-  date.setDate(maxDate);
-  const maxDateString = date.toISOString().split('T')[0];
   
   const [successMessage, setsuccessMessage] = useState('');
   const [error, setError] = useState('');
@@ -117,7 +114,7 @@ export default function RegistrationPage() {
         <input type = 'text' id = 'eventID' value = {formData.eventID} pattern = '(?=.*\d)(?=.*[a-zA-Z]).+' placeholder = 'Must be alphanumeric' onChange = {handleChange}  required/>  </label> 
         
         <label> Date of the Event: 
-        <input type = 'date' min = {today} max = {maxDateString} id = 'eventDate' value = {formData.eventDate} onChange = {handleChange} required/> </label>  
+        <input type = 'date' min = {today} id = 'eventDate' value = {formData.eventDate} onChange = {handleChange} required/> </label>  
         
         <label> Name of the Event Organiser: 
         <input type = 'text' id = 'eventOrganizer' value = {formData.eventOrganizer} placeholder = 'Microsoft, Oracle,....'  onChange = {handleChange} required/>   </label>
