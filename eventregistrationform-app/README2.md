@@ -5,33 +5,33 @@ This README.md file gives step by step instruction to the user to create API for
 ### Steps:
 
 1.Creating register API:
-    - Create a folder under src to group all the API files together
-    - Create registration.js file under API folder.
-    - Add the following lines of code to the registration.js file
-      ```
-      export async function registerParticipant(formData) {
-        try {
-          const response = await fetch('http://localhost:3001/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
-          
-          const data = await response.json();
-      
-          if (!response.ok) {
-            throw new Error(data.error || 'Failed to register participant');
-          }
-      
-          return data;
-        } catch (err) {
-          console.error(err);
-          throw err;
+  - Create a folder under src to group all the API files together
+  - Create registration.js file under API folder.
+  - Add the following lines of code to the registration.js file
+    ```
+    export async function registerParticipant(formData) {
+      try {
+        const response = await fetch('http://localhost:3001/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        const data = await response.json();
+    
+        if (!response.ok) {
+          throw new Error(data.error || 'Failed to register participant');
         }
+    
+        return data;
+      } catch (err) {
+        console.error(err);
+        throw err;
       }
-      ```
+    }
+    ```
 
 2.Adding the changes to frontend:
   - Add the code in Page1.jsx to the following:
@@ -75,7 +75,7 @@ This README.md file gives step by step instruction to the user to create API for
       setTimeout(() => setError(''), 5000);
     }
     ```
-    - Import the registration.js file into Page1.jsx file. 
+  - Import the registration.js file into Page1.jsx file. 
       ```
       import { registerParticipant } from '../api/registration';
       ```
