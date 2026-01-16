@@ -205,9 +205,7 @@ This ReactJS application allows users to register for events through an interact
         // This keeps the React state intact and lets us handle the submission manually.
         event.preventDefault();
 
-        const registrationInfo = {...formData};
-
-        console.log('Form submitted:', registrationInfo);
+        alert(`Form Submitted Successfully! ${formData.participantName} has registered for ${formData.eventName} on ${formData.eventDate}`);
       }
       ```
     - Add onSubmit attribute for form in order to handle the submit request
