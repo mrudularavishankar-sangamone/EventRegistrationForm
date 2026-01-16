@@ -216,3 +216,5 @@ This ReactJS application allows users to register for events through an interact
         ....
       </form>
       ``` 
+
+16. The next steps of creating the backend is in the README.md file of backend folder of this project.

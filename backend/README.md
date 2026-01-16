@@ -174,4 +174,4 @@ The backend setup handles the server-side logic and database operations for the 
         });
       });
       ```
-19. The following steps are included as part of Frontend. Please refer README.md from the frontend part of the project.
+19. The following steps are included as part of Frontend. Please refer README2.md file from the frontend folder of the project.
