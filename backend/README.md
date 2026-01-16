@@ -30,13 +30,18 @@ The backend setup handles the server-side logic and database operations for the 
    - Install Node.js by running the installer and follow the prompts.
    - Verify the installation by running the npm -v command in terminal.
 
-3. Verify if cors express mysql2 and nodemon are installed in your device/workspace(for Windows):
+3. Create a subfolder called backend inside the EventRegistrationForm project.
+
+4. Navigate to the backend folder using ```cd backend``` command.
+
+5. Run ```npm init -y``` to automatically generate a file that tracks the project name and the tools used in the project.
+
+6. Verify if cors express mysql2 and nodemon are installed in your device/workspace(for Windows):
     - Before we start building the backend, ensure that the above technologies are installed on your system.
     - Open the Terminal in VSCode.
-    - Navigate to the backend folder
     - Run the following command:
       ```
-      npm list
+      npm chr
       ```
     - If a version number is displayed for all the above dependencies, all the required dependencies are already installed. You can skip Step 4.
     - If you an empty list, then no dependecies are installed. Proceed to Step 4
@@ -48,22 +53,22 @@ The backend setup handles the server-side logic and database operations for the 
       ```
     - Once, this command is completed, run the below command:
       ```
-      npm install nodemon --save-dev
+      npm install nodemon
       ```
-    - Verify the installation by running the ```npm -list``` command in terminal.
+    - Verify the installation by running the ```npm list``` command in terminal.
 
-3. Add the following line of code to package.json file under scripts:
+5. Add the following line of code to package.json file under scripts:
    ```
    "start": "nodemon server.js"
    ```
    This helps start the backend server easily using ```npm start```
 
-4. Changing the directory to the AppName:
+6. Changing the directory to the AppName:
    ```
    cd <app-name>
    ```
 
-5. Start the development server:
+7. Start the development server:
    ```
    npm start
    ```
